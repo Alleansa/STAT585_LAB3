@@ -1,0 +1,10 @@
+Package: Team5
+Type: Package
+Title: Lab3-Team5
+Version: 0.1.0
+Authors@R: person("Xin", "Zhang", email = "xinzhang@example.com",
+                  role = "cre")
+Description: This package is from Team 5 for Lab 3 at STAT 585.
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
