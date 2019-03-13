@@ -8,3 +8,8 @@ Description: This package is from Team 5 for Lab 3 at STAT 585.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+Suggests: 
+    testthat
+Imports:
+    checkmate,tidyverse,purrr,ggplot2,sf,maptools
+RoxygenNote: 6.1.1
