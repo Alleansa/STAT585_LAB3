@@ -1,8 +1,20 @@
-#' 
+#' Function from Team 5
 #'
+#'@para file is the location of the data
+#'@para tolerance is the value used for thinning the polygon
+#'
+#'@import ggplot2
+#'@return ozplus is a data frame about how to plot the map of Australia
 #'
 Team_5 <- function(file="./data/gadm36_AUS_shp/gadm36_AUS_1.shp",tolerance=0.1){
-  library(ggplot2)
+  if(!file.exists(file)){
+    warning('the file does not exist: returning NA')
+    return(NA)
+  }
+  if(!is.numeric(tolerance)){
+    warning('argument is not numeric or logical: returning NA')
+    return(NA)
+  }
   ozbig <- sf::read_sf(file)
   oz_st <- maptools::thinnedSpatialPoly(as(ozbig, "Spatial"), tolerance , minarea = 0.001, topologyPreserve = TRUE)
   oz <- sf::st_as_sf(oz_st)
@@ -16,6 +28,5 @@ Team_5 <- function(file="./data/gadm36_AUS_shp/gadm36_AUS_1.shp",tolerance=0.1){
   }
   oz_flatten <- purrr::flatten(purrr::flatten(oz$geometry))
   ozplus <- purrr::map_df(.x=oz_flatten,.f=Mat2Df)
-  ggplot() + 
-    geom_polygon(data=ozplus,aes(x=long, y=lat, group=group),fill='white',colour='black')
+  return(ozplus)
 }
