@@ -11,5 +11,5 @@ LazyData: true
 Suggests: 
     testthat
 Imports:
-    checkmate,tidyverse,purrr,ggplot2,sf,maptools
+    checkmate,tidyverse,purrr,ggplot2,sf,maptools5
 RoxygenNote: 6.1.1
