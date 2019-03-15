@@ -3,13 +3,17 @@
 #'@param file is the location of the data
 #'@param tolerance is the value used for thinning the polygon
 #'
-#'@import ggplot2
+#'@import ggplot2 
+#'@import stats
+#'@import methods
 #'@return ozplus is a data frame about how to plot the map of Australia
 #'
-Team_5 <- function(file="./data/gadm36_AUS_shp/gadm36_AUS_1.shp",tolerance=0.1){
-  if(!file.exists(as.character(file))){
-    warning('the file does not exist: returning NA')
-    return(NA)
+Team_5 <- function(file,tolerance=0.1){
+  if(!hasArg(file)){
+    file=system.file("gadm36_AUS_shp/gadm36_AUS_0.shp", package="Team5")
+  }
+  else if(!file.exists(as.character(file))){
+    file=system.file("gadm36_AUS_shp/gadm36_AUS_0.shp", package="Team5")
   }
   if(!is.numeric(tolerance)){
     warning('argument is not numeric or logical: returning NA')
