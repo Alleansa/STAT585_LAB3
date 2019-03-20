@@ -8,4 +8,12 @@ Description: This package is from Team 5 for Lab 3 at STAT 585.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
+<<<<<<< HEAD
 RoxygenNote: 6.1.1
+=======
+Suggests: 
+    testthat
+Imports:
+    checkmate,tidyverse,purrr,ggplot2,sf,maptools
+RoxygenNote: 6.1.1
+>>>>>>> d7d6e9ebd3b9ae4ec7a08a1dd656342a281cfc0c
