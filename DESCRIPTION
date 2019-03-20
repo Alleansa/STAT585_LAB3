@@ -14,6 +14,18 @@ RoxygenNote: 6.1.1
 Suggests: 
     testthat
 Imports:
+<<<<<<< HEAD
     checkmate,tidyverse,purrr,ggplot2,sf,maptools
 RoxygenNote: 6.1.1
 >>>>>>> d7d6e9ebd3b9ae4ec7a08a1dd656342a281cfc0c
+=======
+    checkmate,
+    tidyverse,
+    purrr,
+    ggplot2,
+    sf,
+    maptools,
+    stats,
+    methods
+RoxygenNote: 6.1.1
+>>>>>>> b392adb9aea6c2de5c7427f8a397c88b453b91f1

@@ -7,4 +7,9 @@ import(sf)
 import(tidyverse)
 =======
 import(ggplot2)
+<<<<<<< HEAD
 >>>>>>> d7d6e9ebd3b9ae4ec7a08a1dd656342a281cfc0c
+=======
+import(methods)
+import(stats)
+>>>>>>> b392adb9aea6c2de5c7427f8a397c88b453b91f1
