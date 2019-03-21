@@ -2,7 +2,7 @@
 % Please edit documentation in R/team_6.R
 \name{team_6}
 \alias{team_6}
-\title{solution of Lab 2 of team 6.}
+\title{Function from Team 6}
 \usage{
 team_6(file, tolerance)
 }
@@ -12,10 +12,10 @@ team_6(file, tolerance)
 \item{tolerance}{A number for tolerence.}
 }
 \value{
-The dataframe
+The dataframe about how to plot the map of a country such as Australia as default
 }
 \description{
-solution of Lab 2 of team 6.
+Function from Team 6
 }
 \examples{
 file<-"./data/gadm36_AUS_shp/gadm36_AUS_1.shp"

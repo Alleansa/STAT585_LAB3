@@ -3,7 +3,7 @@
 #' @param file A path having shape file of selected country.
 #' @param tolerance A number for tolerence.
 #' @import tidyverse
-#' @import purr
+#' @import purrr
 #' @import sf
 #' @export 
 #' @return The dataframe about how to plot the map of a country such as Australia as default
