@@ -1,4 +1,4 @@
-#' solution of Lab 2 of team 6.
+#' Function from Team 6
 #' 
 #' @param file A path having shape file of selected country.
 #' @param tolerance A number for tolerence.
@@ -6,7 +6,7 @@
 #' @import purr
 #' @import sf
 #' @export 
-#' @return The dataframe
+#' @return The dataframe about how to plot the map of a country such as Australia as default
 #' @examples
 #' file<-"./data/gadm36_AUS_shp/gadm36_AUS_1.shp"
 #' tolerance <- 0.1
