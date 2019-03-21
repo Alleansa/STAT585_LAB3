@@ -15,6 +15,16 @@
 
 
 team_6 <- function(file, tolerance){
+  if(!hasArg(file)){
+    file=system.file("gadm36_AUS_shp/gadm36_AUS_0.shp", package="Team5")
+  }
+  else if(!file.exists(as.character(file))){
+    file=system.file("gadm36_AUS_shp/gadm36_AUS_0.shp", package="Team5")
+  }
+  if(!is.numeric(tolerance)){
+    warning('argument is not numeric or logical: returning NA')
+    return(NA)
+  }
   ozbig <- read_sf(file)
   oz_st <- maptools::thinnedSpatialPoly(as(ozbig, "Spatial"), tolerance = tolerance, minarea = 0.001, topologyPreserve = TRUE)
   oz <- st_as_sf(oz_st)
