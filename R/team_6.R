@@ -31,7 +31,7 @@ team_6 <- function(file, tolerance){
   mat2df <- function(mat) {
     df <- data.frame(long = mat[, 1],
                      lat  = mat[, 2], 
-                     temporary.group = sum(mat[,1]+mat[,2] *nrow(mat) + rnorm(1, 100, 10)), 
+                     temporary.group = sum(mat[,1]+mat[,2] *nrow(mat) + stats::rnorm(1, 100, 10)), 
                      order= 1:nrow(mat))
     df
   }
