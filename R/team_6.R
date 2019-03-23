@@ -10,11 +10,12 @@
 #' @import dplyr
 #' @export 
 #' @return The dataframe about how to plot the map of a country such as Australia as default
-#' @examples
+#' examples
 #' file<-"gadm36_AUS_shp/gadm36_AUS_1.shp"
 #' tolerance <- 0.1
-#' team_6(file,tolerance)
-#' team_6(file,0.1) %>% ggplot(aes(x = long, y = lat, group = group)) + geom_polygon(fill="white",color="black",lwd=1) 
+#' team_6(file="gadm36_AUS_1.shp",0.01)
+#' team_6(file,0.1) %>% ggplot(aes(x = long, y = lat, group = group)) + geom_polygon(fill="white",color="black",lwd=1)
+
 
 
 
