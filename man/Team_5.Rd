@@ -4,8 +4,15 @@
 \alias{Team_5}
 \title{Function from Team 5}
 \usage{
-Team_5(file = "./data/gadm36_AUS_shp/gadm36_AUS_1.shp",
-  tolerance = 0.1)
+Team_5(file, tolerance = 0.1)
+}
+\arguments{
+\item{file}{is the location of the data}
+
+\item{tolerance}{is the value used for thinning the polygon}
+}
+\value{
+ozplus is a data frame about how to plot the map of Australia
 }
 \description{
 Function from Team 5

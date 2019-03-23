@@ -20,5 +20,5 @@ Function from Team 6
 \examples{
 file<-"./data/gadm36_AUS_shp/gadm36_AUS_1.shp"
 tolerance <- 0.1
-team_6(file,tolerance) \%>\% ggplot(aes(x = long, y = lat, group = group)) + geom_polygon(fill="white",color="black",lwd=1)
+team_6(file,tolerance) 
 }

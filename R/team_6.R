@@ -10,7 +10,7 @@
 #' @examples
 #' file<-"./data/gadm36_AUS_shp/gadm36_AUS_1.shp"
 #' tolerance <- 0.1
-#' team_6(file,tolerance) %>% ggplot(aes(x = long, y = lat, group = group)) + geom_polygon(fill="white",color="black",lwd=1)
+#' team_6(file,tolerance) 
 
 
 
@@ -44,7 +44,7 @@ team_6 <- function(file, tolerance){
   # map_df applies a function to elements of a list and bind the dataframes together
   # Instead of temporary.group variable by the function mat2df, 
   # group variable consisting of the index corresponding each matrix will be used.
-  ozplus <- oz.geometry.flattened %>% purrr::map_df(.x = ., .id ="group", .f = mat2df)
+  ozplus <- oz.geometry.flattened %>% purrr::map_df(.id ="group", .f = mat2df)
   return (ozplus)
   
 }

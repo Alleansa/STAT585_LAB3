@@ -2,7 +2,7 @@
 #'
 #'@param file is the location of the data
 #'@param tolerance is the value used for thinning the polygon
-#'
+#'@export 
 #'@import ggplot2 
 #'@import stats
 #'@import methods
