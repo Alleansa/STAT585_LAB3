@@ -5,26 +5,36 @@
 #' @import tidyverse
 #' @import purrr
 #' @import sf
+#' @import maptools
+#' @import checkmate
+#' @import dplyr
 #' @export 
 #' @return The dataframe about how to plot the map of a country such as Australia as default
 #' @examples
-#' file<-"./data/gadm36_AUS_shp/gadm36_AUS_1.shp"
+#' file<-"gadm36_AUS_shp/gadm36_AUS_1.shp"
 #' tolerance <- 0.1
-#' team_6(file,tolerance) 
+#' team_6(file,tolerance)
+#' team_6(file,0.1) %>% ggplot(aes(x = long, y = lat, group = group)) + geom_polygon(fill="white",color="black",lwd=1) 
 
 
 
 team_6 <- function(file, tolerance){
-  if(!hasArg(file)){
-    file=system.file("gadm36_AUS_shp/gadm36_AUS_0.shp", package="Team5")
+    if(!hasArg(file)){
+    file=system.file("gadm36_AUS_shp/gadm36_AUS_1.shp", package="Team5")
+    warning('file path does not provided by user, set to default file path, gadm36_AUS_shp/gadm36_AUS_1.shp')
   }
   else if(!file.exists(as.character(file))){
-    file=system.file("gadm36_AUS_shp/gadm36_AUS_0.shp", package="Team5")
+    file=system.file("gadm36_AUS_shp/gadm36_AUS_1.shp", package="Team5")
+    warning('file does not exist, set to default file, Australia map')
   }
+  # check whether the tolerance is a number 
   if(!is.numeric(tolerance)){
     warning('argument is not numeric or logical: returning NA')
     return(NA)
   }
+  # check whether the tolerance is a number between 0 and 1.
+  checkmate::assertNumber(tolerance,lower = 0, upper = 1) 
+  
   ozbig <- read_sf(file)
   oz_st <- maptools::thinnedSpatialPoly(as(ozbig, "Spatial"), tolerance = tolerance, minarea = 0.001, topologyPreserve = TRUE)
   oz <- st_as_sf(oz_st)
@@ -36,7 +46,6 @@ team_6 <- function(file, tolerance){
     df
   }
   
-  
   # flatten oz$geometry twice to obtain a list of matrices
   # this is because we have two layers of lists ahead of matrices
   oz.geometry.flattened <- oz$geometry %>% flatten() %>% flatten()
@@ -45,12 +54,12 @@ team_6 <- function(file, tolerance){
   # Instead of temporary.group variable by the function mat2df, 
   # group variable consisting of the index corresponding each matrix will be used.
   ozplus <- oz.geometry.flattened %>% purrr::map_df(.id ="group", .f = mat2df)
-  return (ozplus)
+  checkmate::testDataFrame(ozplus)# check whether the output is a dataframe.
+  
+ return (ozplus)
   
 }
 
-#file<-"./data/gadm36_AUS_shp/gadm36_AUS_1.shp"
-#file="./data/gadm36_DEU_shp/gadm36_DEU_4.shp"
 # plot the result
 #team_6(file,0.1) %>% ggplot(aes(x = long, y = lat, group = group)) + geom_polygon(fill="white",color="black",lwd=1)
 
