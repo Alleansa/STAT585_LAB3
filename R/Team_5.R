@@ -7,8 +7,13 @@
 #'@import methods
 #'@import dplyr
 #'@return ozplus is a data frame about how to plot the map of Australia
-#'
-Team_5 <- function(file,tolerance=0.1){
+#' examples
+#' file=system.file("gadm36_AUS_shp/gadm36_AUS_1.shp", package="Team5")
+#' tolerance <- 0.1
+#' team_5(file="gadm36_AUS_1.shp",0.01)
+#' team_5(file,0.1) %>% ggplot(aes(x = long, y = lat, group = group)) + geom_polygon(fill="white",color="black",lwd=1)
+
+team_5 <- function(file,tolerance=0.1){
   if(!hasArg(file)){
     file=system.file("gadm36_AUS_shp/gadm36_AUS_1.shp", package="Team5")
   }
